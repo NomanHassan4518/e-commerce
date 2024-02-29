@@ -62,4 +62,8 @@ app.put("/product/:id", async (req, res) => {
   res.send(result);
 });
 
+app.get("/" , (req,res)=>{
+  res.send("api is working")
+})
+
 app.listen(5000);
