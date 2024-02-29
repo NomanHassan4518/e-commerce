@@ -7,7 +7,7 @@ const Login = () => {
     let navigate = useNavigate();
 
     const handleLogin = async () => {
-        let result = await fetch("https://e-commerce-orpin-zeta.vercel.app/login", {
+        let result = await fetch("http://localhost:5000/login", {
             method: "post",
             body: JSON.stringify({ email, password }),
             headers: {

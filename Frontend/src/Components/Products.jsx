@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Products = () => {
@@ -8,7 +8,7 @@ const Products = () => {
    
         const fetchData = async () => {
             try {
-                let response = await fetch("https://e-commerce-orpin-zeta.vercel.app/products");
+                let response = await fetch("http://localhost:5000/products");
                 let jsonData = await response.json();
                 setData(jsonData)
             }
@@ -18,13 +18,15 @@ const Products = () => {
             }
         }
 
-fetchData();
+useEffect(()=>{
+    fetchData();
+},[])
    
 
     const deleteItem = async (id) => {
         console.log(id);
 
-        let result = await fetch(`https://e-commerce-orpin-zeta.vercel.app/products/${id}`, {
+        let result = await fetch(`http://localhost:5000/products/${id}`, {
             method: "Delete"
         })
 

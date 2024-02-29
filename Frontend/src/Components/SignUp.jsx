@@ -15,7 +15,7 @@ const SignUp = () => {
     })
 
     const handleSignup= async ()=>{
-        let result = await fetch("https://e-commerce-orpin-zeta.vercel.app/signup", {
+        let result = await fetch("http://localhost:5000/signup", {
             method: "post",
             body: JSON.stringify({ name, email, password }),
             headers: {

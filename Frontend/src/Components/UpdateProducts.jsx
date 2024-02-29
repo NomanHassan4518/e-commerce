@@ -10,24 +10,37 @@ const UpdateProducts = () => {
     let params = useParams();
     let navigate = useNavigate();
 
-    useEffect(() => {
-        getProductDetail();
-    }, [])
-
-
     const getProductDetail = async () => {
-        let result = await fetch(`http://localhost:5000/product/${params.id}`)
+        let result = await fetch(`http://localhost:5000/product/${params.id}`);
         result = await result.json();
         console.log(result);
-        setName(result.name)
-        setPrice(result.price)
-        setCategory(result.category)
-        setCompany(result.company)
-    }
+        setName(result.name);
+        setPrice(result.price);
+        setCategory(result.category);
+        setCompany(result.company);
+    };
+    
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         await getProductDetail();
+    //     };
+    //     fetchData();
+    // }, [params.id]); // Include params.id if it triggers the change in product details
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            await getProductDetail();
+        };
+        fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [params.id]);
+    
+
+  
 
 
     const updateProduct = async () => {
-        let result = await fetch(`https://e-commerce-orpin-zeta.vercel.app/product/${params.id}`, {
+        let result = await fetch(`http://localhost:5000/product/${params.id}`, {
             method: "PUT",
             body: JSON.stringify({ name, price, category, company }),
             headers: {

@@ -23,7 +23,7 @@ const AddProduct = () => {
         setCategory("");
         setCompany("");
 
-        let result = await fetch("https://e-commerce-orpin-zeta.vercel.app/addproduct", {
+        let result = await fetch("http://localhost:5000/addproduct", {
             method: "post",
             body: JSON.stringify({ name, price, category, userId, company }),
             headers: {
