@@ -17,8 +17,7 @@ const Navbar = () => {
           <ul className='flex items-start space-x-12 text-xl '>
             <li><Link to="/">Products</Link></li>
             <li><Link to="/add_product">Add Products</Link></li>
-            <li><Link to="/update_product">Update Products</Link></li>
-            <li><Link to="/delete_product">Delete Products</Link></li>
+          
             <li><Link to="/signup" onClick={logout}>Logout ({JSON.parse(auth).name})</Link></li>
           </ul>
           :
